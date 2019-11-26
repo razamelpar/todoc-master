@@ -1,24 +1,33 @@
 package com.cleanup.todoc.model;
 
+import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.ForeignKey;
+import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import java.util.Comparator;
+
+import static android.arch.persistence.room.ForeignKey.CASCADE;
 
 /**
  * <p>Model for the tasks of the application.</p>
  *
  * @author Gaëtan HERFRAY
  */
+@Entity(tableName = "tasks", foreignKeys = @ForeignKey(entity = Project.class, parentColumns = "id", childColumns = "projectId", onDelete = CASCADE))
 public class Task {
     /**
      * The unique identifier of the task
      */
+    @PrimaryKey(autoGenerate = true)
     private long id;
 
     /**
      * The unique identifier of the project associated to the task
      */
+    @ColumnInfo(name = "projectId", index = true)
     private long projectId;
 
     /**
@@ -42,8 +51,7 @@ public class Task {
      * @param name              the name of the task to set
      * @param creationTimestamp the timestamp when the task has been created to set
      */
-    public Task(long id, long projectId, @NonNull String name, long creationTimestamp) {
-        this.setId(id);
+    public Task(long projectId, @NonNull String name, long creationTimestamp) {
         this.setProjectId(projectId);
         this.setName(name);
         this.setCreationTimestamp(creationTimestamp);
@@ -63,7 +71,7 @@ public class Task {
      *
      * @param id the unique idenifier of the task to set
      */
-    private void setId(long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -84,6 +92,10 @@ public class Task {
     @Nullable
     public Project getProject() {
         return Project.getProjectById(projectId);
+    }
+
+    public long getProjectId() {
+        return projectId;
     }
 
     /**
@@ -112,6 +124,9 @@ public class Task {
      */
     private void setCreationTimestamp(long creationTimestamp) {
         this.creationTimestamp = creationTimestamp;
+    }
+    public long getCreationTimestamp() {
+        return creationTimestamp;
     }
 
     /**
