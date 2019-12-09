@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.concurrent.Executor;
 
 /**
- * Created by Alexandre Vanneçon "Razamelpar" on 26/11/2019.
+ * Created by Alexandre Vanneçon "Razamelpar"
  */
 public class TaskViewModel extends ViewModel {
 

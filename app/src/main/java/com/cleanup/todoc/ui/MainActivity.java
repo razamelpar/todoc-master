@@ -116,6 +116,8 @@ public class MainActivity extends AppCompatActivity implements TasksAdapter.Dele
         getProjects();
         getTasks();
     }
+
+    // utilidation de la factory pour creer le viewmodel
     private void configureViewModel() {
         ViewModelFactory viewModelFactory = Injection.provideViewModelFactory(this);
         taskViewModel = ViewModelProviders.of(this, viewModelFactory).get(TaskViewModel.class);

@@ -8,7 +8,7 @@ import com.cleanup.todoc.model.Task;
 import java.util.List;
 
 /**
- * Created by Alexandre Vanneçon "Razamelpar" on 26/11/2019.
+ * Created by Alexandre Vanneçon "Razamelpar"
  */
 public class TaskDataRepository {
     private final TaskDAO mTaskDao;

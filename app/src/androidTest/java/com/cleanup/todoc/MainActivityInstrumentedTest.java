@@ -48,6 +48,8 @@ public class MainActivityInstrumentedTest {
     @Rule
     public ActivityTestRule<MainActivity> rule = new ActivityTestRule<>(MainActivity.class);
 
+
+    // permet de faire nos test avec une base de donnée vierge
     @BeforeClass
     public static void beforeClass() {
         InstrumentationRegistry.getTargetContext().deleteDatabase("SaveTask.db");

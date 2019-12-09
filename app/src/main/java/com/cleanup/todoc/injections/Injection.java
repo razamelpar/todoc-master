@@ -10,7 +10,7 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
 /**
- * Created by Alexandre Vanneçon "Razamelpar" on 26/11/2019.
+ * Created by Alexandre Vanneçon "Razamelpar"
  */
 public class Injection {
 
