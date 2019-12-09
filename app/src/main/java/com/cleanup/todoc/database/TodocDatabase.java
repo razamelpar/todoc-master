@@ -21,8 +21,7 @@ import com.cleanup.todoc.model.Task;
 public abstract class TodocDatabase extends RoomDatabase {
 
     //singleton
-    private static volatile TodocDatabase INSTANCE;
-
+    public static volatile TodocDatabase INSTANCE;
 
     //instance
 
@@ -31,7 +30,8 @@ public abstract class TodocDatabase extends RoomDatabase {
             synchronized (TodocDatabase.class) {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                            TodocDatabase.class, "SaveTask.db")
+                            TodocDatabase.class,
+                            "SaveTask.db")
                             .addCallback(prepopulateDatabase())
                             .build();
                 }
